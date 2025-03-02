@@ -28,8 +28,8 @@ class CreateProductSpec extends BaseSpecification {
 
         then: 'returns an empty list of products'
             response.statusCode == statusCode
-            with(response.jsonPath().get()) {
-                statusCode == 200 ? productName == productName : true
+            with(response.jsonPath().get()) { Map map ->
+                statusCode == 200 ? map.name == productName : true
             }
 
         where:
